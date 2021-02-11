@@ -6,21 +6,24 @@ from typing import Any, Iterable, Optional, List
 @dataclass
 class Node:
     """a simple node class"""
+
     data: Optional[Any] = None
-    children: Iterable['Node'] = field(default_factory=list)
+    children: Iterable["Node"] = field(default_factory=list)
 
 
 @dataclass
 class BiNode:
     """a simple node class"""
+
     data: Optional[Any] = None
-    left: 'BiNode' = None
-    right: 'BiNode' = None
+    left: "BiNode" = None
+    right: "BiNode" = None
 
 
 @dataclass
 class BiTree:
     """a simple tree class"""
+
     root: BiNode = BiNode()
 
     def in_order_traversal(self, node=root):
@@ -57,7 +60,6 @@ class Heap(BiTree):
 
 
 class MinHeap(Heap):
-
     def insert(self) -> None:
         """
         When we insert into a min-heap, we always start by inserting the element at the bottom.
@@ -87,18 +89,21 @@ class MinHeap(Heap):
 
 class TerminatingTrieNode(Node):
     """a null node"""
+
     ...
 
 
 @dataclass
 class Trie:
     """a simple trie"""
+
     root: Node = Node()
 
 
 @dataclass
 class Queue:
     """a simple queue"""
+
     items: List[Any] = field(default_factory=list)
 
     def enqueue(self, item: Any) -> None:
@@ -122,21 +127,24 @@ class AdjacencyMatrix:
     An adjacency matrix is an NxN boolean matrix
     (where N is the number of nodes), where a true value at matrix[i][j] means i is connected to j
     """
+
     matrix: List[List[bool]]
 
 
 @dataclass
 class GraphNode:
     """a simple graph node"""
+
     data: Optional[Any] = None
     visited: bool = False
     marked: bool = False
-    adjacent: Iterable['GraphNode'] = field(default_factory=list)
+    adjacent: Iterable["GraphNode"] = field(default_factory=list)
 
 
 @dataclass
 class Graph:
     """a simple graph"""
+
     nodes: Iterable[GraphNode] = field(default_factory=list)
     root: GraphNode = GraphNode()
 
@@ -179,9 +187,11 @@ class Graph:
         """
         Two searches (one from s and one from t) that collide after four levels total (two levels each).
         """
+
     pass
 
 
 class DiGraph(Graph):
     """a simple directed graph"""
+
     ...
